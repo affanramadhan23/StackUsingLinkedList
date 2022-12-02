@@ -6,14 +6,42 @@ using System.Threading.Tasks;
 
 namespace StackUsingLinkedList
 {
-    class node
+    class Node
     {
         public int info;
-        public node next;
-        public node(int i, node n)
+        public Node next;
+        public Node(int i, Node n)
         {
             info = i;
             next = n;
+        }
+    }
+
+    class stacks
+    {
+        Node top;
+        
+        public Stacks()
+        {
+            top = null;
+        }
+
+        bool empty()
+        {
+            if (top == null)
+                return (true);
+            else
+                return (false);
+        }
+
+        public void push(int element)
+        {
+            Node fresh;
+            fresh = new Node(element, null);
+
+            fresh.next = top;
+            top = fresh;
+            Console.WriteLine("\n" + element + "pushed.");
         }
     }
     internal class Program
